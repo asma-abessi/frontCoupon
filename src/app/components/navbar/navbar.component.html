@@ -1,0 +1,23 @@
+<body>
+    <nav>
+      <div class="container">
+        <h1 class="gradient shimmer"><a routerLink="/home">Coupon'eti</a></h1>
+      
+      <div class="nav-list">
+      <a routerLink="/home">Home</a>
+      
+        <a   routerLink="/admin" *ngIf="userServ.roleMatch(['Admin'])" >manage Custemers</a>
+        <a   routerLink="/manageusers" *ngIf="userServ.roleMatch(['Admin'])" >Our Users</a>
+      
+        <a  routerLink="/user" *ngIf="userServ.roleMatch(['User'])">user dash</a>
+  
+     
+      <a  *ngIf="! isLoggedIn()"   routerLink="/login">Login </a>
+      <a  *ngIf="isLoggedIn()"  (click)="logout() ">Logout </a>
+      </div>
+     
+    </div>
+    </nav>
+      
+
+      </body>

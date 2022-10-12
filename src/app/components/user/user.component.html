@@ -1,0 +1,26 @@
+<div style="margin-top: 7%; margin-left: 40%;"> <i class="fa fa-search   "></i><input type="text" [(ngModel)]="searchVal" placeholder="searsh" style="margin-left:15px ; margin-bottom: 2%;"/>
+</div>  
+
+
+
+
+<tbody *ngFor="let u of ListCompanies " >
+<div class="p_bar" *ngIf="searchVal == '' || u.name== searchVal" >
+    <div class="profile" style="margin-left: 5%;" >
+          <div class="picture sh-green"><img src="http://maxme-life.ru/tests/maxme4.jpg" /></div>
+          
+          <div class="description"  >
+                <p class="name">{{u.name}}</p>
+                <a  class="color-green">adresse :{{u.adresse}}</a>
+                <button class="green border-green" > <a href="{{u.website}}"> Visit </a></button>
+                <p class="pretext">{{u.emailC}}</p>
+                <p class="followers">code coupon : {{u.codeCoupon}} <a style="margin-left: 0%;" [routerLink]="['/company/',u.idCompany]"> find more coupons </a> </p>
+ 
+             
+          </div>
+      
+    </div>
+    
+  </div>
+</tbody>
+

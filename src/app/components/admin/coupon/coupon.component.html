@@ -1,0 +1,41 @@
+<div class="container mt-5">
+<table class="table table-bordered table-striped table-hover"  style="color:rgb(0, 0, 0);  table-layout: auto;max-height: 500px; width: 100%; margin-top: 10%;">
+    <thead>
+    <tr>
+    
+      <th>product Name</th>
+    <th>code</th>
+    
+    <th>date debut</th>
+    <th>date fin</th>
+    
+    </tr>
+    </thead>
+    <tbody *ngFor="let u of listCoupons" style="color: darkblue ; font: 1em sans-serif;;">
+    <tr >
+      <td>{{u.productName}}</td>
+    <td>{{u.code}}</td>
+    
+    <td>{{u.dateD}}</td>
+    <td>{{u.dateF}}</td>
+    
+    <td><button *ngIf="userServ.roleMatch(['Admin'])" type="button" (click)="deletecoupon(u.idCoupon)" class="btn btn-danger" ><i class='fas fa-trash-alt'></i></button> <div class=""></div>
+    <!--   <td><button *ngIf="userServ.roleMatch(['Admin'])"  type="button" class="btn btn-success"  > <i class='fas fa-pen'></i></button> <div class=""></div>--> 
+          
+    
+ </tr>
+ 
+       
+ 
+ 
+    </tbody>
+    
+</table> 
+<div>
+    <button *ngIf="userServ.roleMatch(['Admin'])" class="btn btn-success " (click)="showForm()">Add coupons</button>
+  <app-addcoupon (aded)="addCoupon($event)" *ngIf="showAdd"></app-addcoupon>
+</div>
+<button style="margin-top: 5%;" *ngIf="userServ.roleMatch(['Admin'])" class="btn btn-primary " routerLink="/admin" >back</button>
+</div>
+
+

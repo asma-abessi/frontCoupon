@@ -7,8 +7,49 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
+  <script>
+    $(".input-bordered").find("input").on('focus', function(){
+      $(this).parent(".input-bordered").addClass("active")
+    });
+    $(".input-bordered").find("input").on('blur', function(){
+      if($(this).val().length == 0){
+        $(this).parent(".input-bordered").removeClass("active")
+      }
+    });
+    
+    $("form").on('submit', function(e){
+      e.preventDefault();
+      var $this = $(this);
+      $(this).parents(".signUp").find(".left").addClass("close");
+      $(this).parents(".signUp").addClass("close");
+      setTimeout( function(){
+        $($this).parents(".signUp").css("opacity", "0")
+      }, 1000);
+    });
+    
+    $(".back").on('mousemove', function(e){
+      
+      var X = e.pageX - $(this).offset().left - $(this).outerWidth() / 2,
+          Y = e.pageY - $(this).offset().top - $(this).outerHeight() / 2,
+          xSet = X / 60,
+          ySet = Y / 60;
+      
+      $(this).css("background-position", " "+xSet+"px "+ySet+"px ");
+      
+      
+    });
+    </script>
   <app-root></app-root>
 </body>
+<script></script>
+
+
 </html>
